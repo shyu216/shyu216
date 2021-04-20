@@ -1,4 +1,4 @@
-### Hi there 🙌
+## Hi there 🙌
 
 - 👦 Here is dale
 - 💥 Currently a computer science undergraduate of CUHK
