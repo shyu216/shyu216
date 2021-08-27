@@ -1,4 +1,4 @@
-## What's up
-- 👦 A freshman in Github
+## What is me
+- 👦 A freshman of Github
 - 💦 All kinds of homework/assignment/quiz/midterm/final/presentation/project/...
-- ❤️ Phone games
+- 🎮 Phone games
