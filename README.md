@@ -1,4 +1,2 @@
-## What is me
-- 👦 A freshman of Github
-- 💦 All kinds of homework/assignment/quiz/midterm/final/presentation/project/...
-- 🎮 Phone games
+## 天凈沙秋思
+枯藤老树昏鸦 空调wifi西瓜 葛优同款沙发 夕阳西下 我就往上一趴
