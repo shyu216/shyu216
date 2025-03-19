@@ -1,15 +1,12 @@
 An attempt at the 10,000 hour rule...
 
-[![GitHub stats](https://github-readme-stats.vercel.app/api/wakatime?username=shyu216&layout=compact)](https://github.com/shyu216)
+<!-- [![GitHub stats](https://github-readme-stats.vercel.app/api/wakatime?username=shyu216&layout=compact)](https://github.com/shyu216) -->
 
-<!--START_SECTION:waka-->
+![](https://wakatime.com/share/@shyu216/f051f190-35b8-4c94-83e4-3b8153518751.svg)
 
-```txt
-TeX            22 hrs 18 mins  ██████████░░░░░░░░░░░░░░░   40.16 %
-Python         21 hrs 39 mins  █████████▓░░░░░░░░░░░░░░░   38.98 %
-Markdown       3 hrs 35 mins   █▓░░░░░░░░░░░░░░░░░░░░░░░   06.47 %
-JSON           1 hr 42 mins    ▓░░░░░░░░░░░░░░░░░░░░░░░░   03.07 %
-TypeScript     1 hr 34 mins    ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.84 %
-```
+![](https://wakatime.com/share/@shyu216/8daa39e4-a9fe-4a72-8f06-aafe349f9ffa.svg)
 
-<!--END_SECTION:waka-->
+![](https://wakatime.com/share/@shyu216/8d217946-325c-4799-81f2-0aabe4b4186e.svg)
+
+![](https://wakatime.com/share/@shyu216/51363978-e840-42b7-b8eb-4e1d8184a358.svg)
+
