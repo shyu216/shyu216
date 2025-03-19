@@ -10,7 +10,19 @@ jobs:
     name: Update Readme with Metrics
     runs-on: ubuntu-latest
     steps:
-      - uses: anmol098/waka-readme-stats@master
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Print Debug Information
+        run: |
+          echo "WAKATIME_API_KEY is set"
+          echo "GH_TOKEN is set"
+        env:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Update Readme with Metrics
+        uses: anmol098/waka-readme-stats@master
         with:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
