@@ -1,10 +1,12 @@
 name: Sihong Waka Readme
 
 on:
-  schedule:
-    # Runs at 12am IST
-    - cron: '30 18 * * *'
+  # for manual workflow trigger
   workflow_dispatch:
+  schedule:
+    # runs every 2 hours
+    - cron: "0 */2 * * *"
+
 jobs:
   update-readme:
     name: Update Readme with Metrics
@@ -15,14 +17,13 @@ jobs:
 
       - name: Print Debug Information
         run: |
-          echo "WAKATIME_API_KEY is set"
-          echo "GH_TOKEN is set"
+          echo "WAKATIME_API_KEY starts with: ${WAKATIME_API_KEY:0:3}"
+          echo "GH_TOKEN starts with: ${GH_TOKEN:0:3}"
         env:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      - name: Update Readme with Metrics
-        uses: anmol098/waka-readme-stats@master
+      - name: WakaReadme DevMetrics
+        uses: athul/waka-readme@master
         with:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
