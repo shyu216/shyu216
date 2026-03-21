@@ -4,9 +4,6 @@
 <!-- 人生轨迹地图 -->
 <img src="journey-map.svg" width="100%" alt="My Life Journey"/>
 
----
-
-
 <!-- [Find more charts here](https://shyu216.github.io/portfolio/portfolio-github/) -->
 
 <!-- 原始 WakaTime 图表 -->

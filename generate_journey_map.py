@@ -581,6 +581,9 @@ def generate_svg(data: dict, output_path: str):
         f'    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">',
         f'      <feDropShadow dx="3" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.15"/>',
         f'    </filter>',
+        f'    <clipPath id="map-clip">',
+        f'      <rect width="{width}" height="{height}" rx="{border_radius}" ry="{border_radius}"/>',
+        f'    </clipPath>',
         f'    <style>',
         f'      .country {{ fill: {colors["land"]}; stroke: {colors["border"]}; stroke-width: 0.5; }}',
         f'      .graticule {{ fill: none; stroke: {colors["graticule"]}; stroke-width: 0.3; stroke-opacity: 0.4; }}',
@@ -594,6 +597,9 @@ def generate_svg(data: dict, output_path: str):
         f'',
         f'  <!-- 背景 -->',
         f'  <rect width="{width}" height="{height}" fill="{colors["background"]}" rx="{border_radius}" ry="{border_radius}" filter="url(#shadow)"/>',
+        f'',
+        f'  <!-- 被裁剪的地图内容 -->',
+        f'  <g clip-path="url(#map-clip)">',
         f'',
         f'  <!-- 经纬网格 -->',
     ]
@@ -633,8 +639,10 @@ def generate_svg(data: dict, output_path: str):
         svg_parts.append(f'  <circle class="marker" cx="{point["x"]:.2f}" cy="{point["y"]:.2f}" r="5" fill="{color}"/>')
     
     svg_parts.append('')
+    svg_parts.append('  </g>')
+    svg_parts.append('')
     svg_parts.append('  <!-- 标题 -->')
-    svg_parts.append(f'  <text class="label" x="{width/2}" y="40" text-anchor="middle" fill="#5c4033" font-size="24" font-weight="bold">Sihong\'s Life Journey</text>')
+    svg_parts.append(f'  <text class="label" x="{width/2}" y="40" text-anchor="middle" fill="#5c4033" font-size="24" font-weight="bold">His Journey</text>')
     
     svg_parts.append('')
     svg_parts.append('  <!-- 罗盘装饰 -->')

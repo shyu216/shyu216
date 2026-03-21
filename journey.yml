@@ -32,7 +32,7 @@ map_config:
   center: "weighted"
   scale: 150
   # 圆角弧度 (0-50, 0为直角)
-  border_radius: 20
+  border_radius: 30
   colors:
     background: "#f5f5dc"
     land: "#d4c4a8"

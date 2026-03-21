@@ -26,3 +26,5 @@ npm-debug.log*
 # Build output
 dist/
 build/
+
+__pycache__/

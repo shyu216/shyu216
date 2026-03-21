@@ -1,0 +1,120 @@
+
+==================================================
+ 🚀 Stats Generator
+==================================================
+
+📊 Fetching WakaTime Stats...
+
+ ✓ Total Coding Time: 2,489 hrs 39 mins
+
+🌐 Fetching WakaTime Details (Languages, Editors, Categories)...
+  Trying Last 7 Days...
+   ✓ Found from Last 7 Days:
+     • 10 languages
+     • 5 editors
+     • 5 categories
+     • 3 operating systems
+
+   Top Languages:
+     • Python: 702 hrs 51 mins (28.3%)
+     • Markdown: 424 hrs 43 mins (17.1%)
+     • TypeScript: 387 hrs 41 mins (15.6%)
+     • TeX: 244 hrs (9.8%)
+     • C#: 155 hrs 44 mins (6.3%)
+
+   Top Editors:
+     • VS Code: 2,331 hrs 1 min (93.8%)
+     • Trae: 113 hrs 7 mins (4.5%)
+     • Visual Studio: 21 hrs 34 mins (0.9%)
+
+==================================================
+ GitHub Token 信息查询结果
+==================================================
+
+🔐 Token 权限信息...
+
+### [7] Token 权限范围
+| 权限 | 说明 |
+|-----|------|
+| repo | 完全控制私有仓库 |
+| repo:status | 访问提交状态 |
+| public_repo | 访问公开仓库 |
+| workflow | 更新 GitHub Action 工作流 |
+
+✓ Token 有效 - 关联用户: shyu216
+
+👤 Fetching GitHub User Info: shyu216
+
+### [1] 用户信息
+| 项目 | 内容 |
+|-----|------|
+| 用户名 | shyu216 |
+| 用户ID | 79613808 |
+| 账号创建时间 | 2021-02-25 (大约5年前加入 GitHub) |
+| 最后更新 | 2026-03-15 |
+| 公开仓库数 | 82 个 |
+| 粉丝数 | 11 |
+| 关注数 | 36 |
+| 所在地 | Melbourne |
+| 个人简介 | Dropping commits, chugging coffee, and being deadline-ready. |
+
+### [2] 可访问的仓库
+
+ 最近更新的仓库包括：
+
+ - shyu216/shyu216 [public] - Introduction to aoiue
+   ⭐ 0 | 🍴 0 | 💻 Python
+ - shyu216/shyu-resume [public] - A modern, bilingual resume builder built with Next
+   ⭐ 2 | 🍴 0 | 💻 TypeScript
+ - shyu216/chinese-poetry-data-mining [public] - Chinese Ancient Literature Atlas: Data Mining over
+   ⭐ 2 | 🍴 0 | 💻 Vue
+ - shyu216/go-raft [public] - No description
+   ⭐ 6 | 🍴 1 | 💻 Go
+ - shyu216/knownoevil [public] - My blog, written in Chinglish
+   ⭐ 2 | 🍴 0 | 💻 TypeScript
+ - shyu216/meta-sense-calib [public] - Extrinsic Calibration Tool for Meta Quest 3 & Inte
+   ⭐ 2 | 🍴 0 | 💻 Python
+ - shyu216/EVM-csharp [public] - Eulerian Video Magnification (EVM) implementation 
+   ⭐ 2 | 🍴 1 | 💻 C#
+ - shyu216/shyu216.github.io [public] - No description
+   ⭐ 1 | 🍴 0 | 💻 SCSS
+ - shyu216/ccpoems [public] - Simply an app for Chinese poems
+   ⭐ 1 | 🍴 0 | 💻 TypeScript
+ - shyu216/chinese-poetry [public] - The most comprehensive database of Chinese poetry 
+   ⭐ 0 | 🍴 0 | 💻 JavaScript
+
+ ... 还有 72 个更多仓库
+
+ 📊 总计: ⭐ 18 stars | 🍴 2 forks
+
+### [3] 所属组织
+ - csci3251-2021 - Playground of CSE students
+ - easyDG - easy Draw & Guess, the project of CSCI3100 GroupA1
+
+### [4] 最近的公开活动
+ - 推送代码到 shyu216/shyu216 (2026-03-21)
+ - 推送代码到 shyu216/shyu216 (2026-03-21)
+ - 推送代码到 shyu216/shyu216 (2026-03-21)
+ - 推送代码到 shyu216/shyu-resume (2026-03-21)
+ - 推送代码到 shyu216/shyu-resume (2026-03-21)
+
+### [6] Starred 仓库
+
+ 最近 Star 了 10 个项目：
+ - 88lin/video_vip ⭐191
+ - VIDA-Lab/Chameleon ⭐2
+ - comfort-mode-toolkit/cm-colors ⭐31
+ - frode-sandnes/INJECTOR ⭐1
+ - facebookresearch/ConvNeXt ⭐6320
+ - charlesix59/chinese_word_rhyme ⭐30
+ - zhengwy888/lua_shiyun ⭐6
+ - shyu216/chinese-poetry-data-mining ⭐2
+ - shyu216/meta-sense-calib ⭐2
+ - shyu216/knownoevil ⭐2
+
+✅ Generated: stats.svg
+
+==================================================
+ ✅ All Done!
+==================================================
+

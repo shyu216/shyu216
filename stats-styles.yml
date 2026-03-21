@@ -1,0 +1,42 @@
+name: "Outback Sands"
+description: "澳大利亚内陆黄沙风格 - 疯狂max越野风"
+colors:
+  background:
+    start: "#D4A574"
+    end: "#C4956A"
+  progressBar:
+    start: "#E8C87D"
+    middle: "#D4B86A"
+    end: "#C9A858"
+  text:
+    primary: "#3D2E1F"
+    secondary: "#6B5344"
+    accent: "#FF8C42"
+    highlight: "#E67E22"
+  milestone: "#F4D03F"
+  progressBg: "#B8956E"
+  divider: "#A8845C"
+  glow: "#D4A574"
+  particles: ["#E8C87D", "#D4B86A", "#C9A858", "#FF8C42"]
+  cardBg: "#C9A66B"
+  cardBorder: "#A8845C"
+  headerStart: "#D4A574"
+  headerEnd: "#C4956A"
+  commitStart: "#C4956A"
+  commitEnd: "#A8845C"
+  starStart: "#F4D03F"
+  starEnd: "#E67E22"
+fonts:
+  primary: "'Bitter', 'Georgia', 'Times New Roman', serif"
+  title: "'Bitter', 'Georgia', serif"
+emojis:
+  title: "🦘"
+  progress: "🌿"
+  languages: "🦎"
+  remaining: "☀️"
+  milestone: "💛"
+borderRadius: 12
+animation:
+  float: true
+  pulse: false
+  sparkle: true
