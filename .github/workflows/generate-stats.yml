@@ -10,6 +10,7 @@ on:
       - 'update_stats.py'
       - 'stats-styles.yml'
       - 'about-me.yml'
+      - 'draw-interesting-object.py'
   workflow_dispatch:
 
 jobs:

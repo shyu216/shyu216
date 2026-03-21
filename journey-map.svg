@@ -23,7 +23,7 @@
   </defs>
 
   <!-- 背景 -->
-  <rect width="600" height="300" fill="#f5f5dc" rx="20" ry="20" filter="url(#shadow)"/>
+  <rect width="600" height="300" fill="#f5f5dc" rx="20" ry="20"/>
 
   <!-- 被裁剪的地图内容 -->
   <g clip-path="url(#map-clip)">

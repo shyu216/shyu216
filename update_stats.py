@@ -8,6 +8,17 @@ from datetime import datetime
 
 import yaml
 
+# Import the SVG generator
+try:
+    from draw_interesting_object import generate_svg as generate_coding_character
+except ImportError:
+    # Fallback: try with hyphenated name
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("draw_interesting_object", "draw-interesting-object.py")
+    draw_module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(draw_module)
+    generate_coding_character = draw_module.generate_svg
+
 THEME_FILE = "stats-styles.yml"
 ABOUT_FILE = "about-me.yml"
 OUTPUT_FILE = "update_stats.output"
@@ -154,7 +165,8 @@ def fetch_wakatime_details(api_key):
                     print(f"     • {len(operating_systems)} operating systems")
 
                     print(f"\n   Top Languages:")
-                    for lang in languages[:5]:
+                    
+                    for lang in languages[:10]:
                         print(f"     • {lang.get('name', 'Unknown')}: {lang.get('text', 'N/A')} ({lang.get('percent', 0):.1f}%)")
 
                     print(f"\n   Top Editors:")
@@ -456,30 +468,40 @@ def generate_horizontal_svg(waka_data, waka_details, gh_user, gh_repos, about_me
       <stop offset="0%" style="stop-color:{bg_start}"/>
       <stop offset="100%" style="stop-color:{bg_end}"/>
     </linearGradient>
+    <linearGradient id="progressShine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#fff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
     <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.1"/>
     </filter>
     <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse">
       <circle cx="6" cy="6" r="1.5" fill="{text_muted}" opacity="0.3"/>
     </pattern>
+    <clipPath id="bgClip">
+      <rect width="{canvas_width}" height="{canvas_height}" rx="{radius}"/>
+    </clipPath>
   </defs>
 
   <rect width="{canvas_width}" height="{canvas_height}" fill="url(#bgGrad)" rx="{radius}"/>
-  <rect width="{canvas_width}" height="{canvas_height}" fill="url(#dots)"/>
+    <rect width="{canvas_width}" height="{canvas_height}" fill="url(#dots)" rx="{radius}"/>
 
-  <circle cx="30" cy="25" r="8" fill="{accent_pink}" opacity="0.6"/>
-  <circle cx="50" cy="40" r="5" fill="{accent_sec}" opacity="0.5"/>
-  <circle cx="25" cy="170" r="6" fill="{accent_ter}" opacity="0.5"/>
-  <circle cx="570" cy="30" r="7" fill="{accent_purple}" opacity="0.5"/>
-  <circle cx="580" cy="160" r="9" fill="{accent_mint}" opacity="0.4"/>
-  <circle cx="550" cy="50" r="4" fill="{accent_main}" opacity="0.6"/>
+  <g clip-path="url(#bgClip)">
+    <circle cx="30" cy="25" r="8" fill="{accent_pink}" opacity="0.6"/>
+    <circle cx="50" cy="40" r="5" fill="{accent_sec}" opacity="0.5"/>
+    <circle cx="25" cy="170" r="6" fill="{accent_ter}" opacity="0.5"/>
+    <circle cx="570" cy="30" r="7" fill="{accent_purple}" opacity="0.5"/>
+    <circle cx="580" cy="160" r="9" fill="{accent_mint}" opacity="0.4"/>
+    <circle cx="550" cy="50" r="4" fill="{accent_main}" opacity="0.6"/>
 
-  <polygon points="560,20 563,28 572,28 565,34 568,42 560,37 552,42 555,34 548,28 557,28" 
-           fill="{accent_ter}" opacity="0.7"/>
-  <polygon points="45,160 47,166 54,166 49,170 51,176 45,172 39,176 41,170 36,166 43,166" 
-           fill="{accent_main}" opacity="0.6"/>
-  <polygon points="520,175 522,181 529,181 524,185 526,191 520,187 514,191 516,185 511,181 518,181" 
-           fill="{accent_sec}" opacity="0.6"/>''')
+    <polygon points="560,20 563,28 572,28 565,34 568,42 560,37 552,42 555,34 548,28 557,28" 
+             fill="{accent_ter}" opacity="0.7"/>
+    <polygon points="45,160 47,166 54,166 49,170 51,176 45,172 39,176 41,170 36,166 43,166" 
+             fill="{accent_main}" opacity="0.6"/>
+    <polygon points="520,175 522,181 529,181 524,185 526,191 520,187 514,191 516,185 511,181 518,181" 
+             fill="{accent_sec}" opacity="0.6"/>
+  </g>''')
 
     card_w = 140
     card_h = canvas_height - margin * 2
@@ -496,7 +518,7 @@ def generate_horizontal_svg(waka_data, waka_details, gh_user, gh_repos, about_me
     </text>
     <text x="{card_x + card_w/2}" y="{card_y + 48}" text-anchor="middle" 
           fill="{accent_main}" font-family="{font_round}" font-size="9">
-      {about_me.goal.get('title', '10K HRS')[:10]}
+      {about_me.goal.get('title', '')}
     </text>
     <text x="{card_x + card_w/2}" y="{card_y + 62}" text-anchor="middle" 
           fill="{text_secondary}" font-family="{font_round}" font-size="8">
@@ -504,12 +526,36 @@ def generate_horizontal_svg(waka_data, waka_details, gh_user, gh_repos, about_me
     </text>
     <rect x="{card_x + 10}" y="{card_y + 75}" width="{card_w - 20}" height="8" rx="4" 
           fill="{card_border}" opacity="0.3"/>
-    <rect x="{card_x + 10}" y="{card_y + 75}" width="{(card_w - 20) * waka_progress / 100}" height="8" rx="4" 
-          fill="{accent_sec}"/>
+    <g>
+      <defs>
+        <clipPath id="progressClip_{card_x}">
+          <rect x="{card_x + 10}" y="{card_y + 75}" width="0" height="8" rx="4">
+            <animate attributeName="width" from="0" to="{(card_w - 20) * waka_progress / 100}" dur="1.5s" 
+                     fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+          </rect>
+        </clipPath>
+      </defs>
+      <rect x="{card_x + 10}" y="{card_y + 75}" width="{card_w - 20}" height="8" rx="4" 
+            fill="{accent_sec}" clip-path="url(#progressClip_{card_x})"/>
+      {'' if waka_progress == 0 else f'''
+      <rect x="{card_x + 10 - 40}" y="{card_y + 75}" width="40" height="8" rx="4" 
+            fill="url(#progressShine)" opacity="0" clip-path="url(#progressClip_{card_x})">
+        <animate attributeName="opacity" values="0; 0.6" dur="0.3s" begin="1.6s" fill="freeze"/>
+        <animate attributeName="x" 
+                 values="{card_x + 10 - 40}; {card_x + 10 + max(0, (card_w - 20) * waka_progress / 100)}" 
+                 dur="3s" begin="1.6s" repeatCount="indefinite" 
+                 calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+      </rect>
+      '''}
+    </g>
     <text x="{card_x + card_w/2}" y="{card_y + 95}" text-anchor="middle" 
           fill="{text_muted}" font-family="{font_round}" font-size="7">
       {waka_progress:.1f}% COMPLETE ✨
     </text>
+    <!-- Coding Character - Generated from draw-interesting-object -->
+    <g transform="translate({card_x + card_w/2 - 50}, {card_y + 102})">
+      {generate_coding_character(is_modular=True, width=100, height=50, top_padding=4)}
+    </g>
   </g>''')
 
     stats_x = card_x + card_w + 20
@@ -555,7 +601,7 @@ def generate_horizontal_svg(waka_data, waka_details, gh_user, gh_repos, about_me
         lang_color = theme.langColors.get(lang.get("name"), theme.editorColors[i % len(theme.editorColors)])
         percent = lang.get("percent", 0)
         bar_w = max(percent / 100 * bar_max_w, 10)
-        lang_name = lang.get('name', '')[:8]
+        lang_name = lang.get('name', '')
         
         min_bar_for_text = 45
         if bar_w >= min_bar_for_text:
@@ -581,7 +627,7 @@ def generate_horizontal_svg(waka_data, waka_details, gh_user, gh_repos, about_me
 
     sections.append('  </g>')
 
-    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+    now = datetime.now().strftime("%Y-%m-%d")
     sections.append(f'''
   <text x="{canvas_width - margin}" y="{canvas_height - 8}" text-anchor="end" 
         fill="{text_muted}" font-family="{font_round}" font-size="10" font-style="italic">
@@ -597,7 +643,7 @@ def generate_horizontal_svg(waka_data, waka_details, gh_user, gh_repos, about_me
         f.write(svg)
     print(f"\n✅ Generated: {output_file}")
 
-# Legacy
+# Legacy, not used, await optimising
 def generate_vertical_svg(waka_data, waka_details, gh_user, gh_repos, about_me, theme, output_file):
     """竖向方形/肖像布局 - 中心发散"""
     canvas_size = theme.canvas.get("width", 600)
@@ -743,7 +789,7 @@ def generate_vertical_svg(waka_data, waka_details, gh_user, gh_repos, about_me, 
 
     sections.append('  </g>')
 
-    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+    now = datetime.now().strftime("%Y-%m-%d")
     sections.append(f'''
   <text x="{canvas_size - margin}" y="{canvas_size - 12}" text-anchor="end" 
         fill="{text_muted}" font-family="{font_mono}" font-size="10" font-style="italic">
@@ -820,29 +866,6 @@ def main():
                     fetch_github_starred(gh_token, username)
         else:
             print("\n⚠️ GH_TOKEN not set, skipping GitHub")
-
-    # 检查是否获取到任何数据
-    if waka_data is None and gh_user is None:
-        print("\n⚠️ No API data, using mock data for preview...")
-        waka_data = {
-            "total_seconds": 2491000,
-            "text": "691 hrs 56 mins"
-        }
-        waka_details = {
-            "languages": [
-                {"name": "Python", "percent": 28, "text": "193 hrs"},
-                {"name": "C#", "percent": 20, "text": "138 hrs"},
-                {"name": "TypeScript", "percent": 16, "text": "110 hrs"},
-                {"name": "TeX", "percent": 10, "text": "69 hrs"},
-                {"name": "Markdown", "percent": 8, "text": "55 hrs"},
-            ]
-        }
-        gh_user = {
-            "login": "shyu216",
-            "public_repos": 42,
-            "followers": 11,
-        }
-        gh_repos = [{"stargazers_count": 18}]
 
     # ========== Stage 2: 加载本地配置 ==========
     print("\n📂 Stage 2: Loading local configurations...")

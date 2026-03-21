@@ -35,8 +35,8 @@ langColors:
   Python: "#FF85A2"
   C#: "#7DD3FC"
   TypeScript: "#FCD34D"
-  TeX: "#B088F9"
-  Markdown: "#FF9EBB"
+  C: "#B088F9"
+  Perl: "#FF9EBB"
   JavaScript: "#FBBF24"
   HTML: "#FB923C"
   CSS: "#A78BFA"
@@ -53,10 +53,10 @@ fonts:
 
 topLanguages:
   - "Python"
-  - "C#"
   - "TypeScript"
-  - "TeX"
-  - "Markdown"
+  - "C#"
+  - "C"
+  - "Go"
 
 editorColors:
   - "#FF85A2"

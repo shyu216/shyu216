@@ -686,7 +686,7 @@ def generate_svg(data: dict, output_path: str):
         f'  </defs>',
         f'',
         f'  <!-- 背景 -->',
-        f'  <rect width="{width}" height="{height}" fill="{colors["background"]}" rx="{border_radius}" ry="{border_radius}" filter="url(#shadow)"/>',
+        f'  <rect width="{width}" height="{height}" fill="{colors["background"]}" rx="{border_radius}" ry="{border_radius}"/>',
         f'',
         f'  <!-- 被裁剪的地图内容 -->',
         f'  <g clip-path="url(#map-clip)">',

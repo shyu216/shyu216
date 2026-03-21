@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="60" height="30">
+  <!-- Main character group - centered -->
+  <g id="coding-character">
+    <!-- Computer Screen -->
+    <defs>
+      <filter id="screenGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="1.5" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    <rect x="18" y="0" width="20" height="14" rx="2" fill="#161b22" stroke="#30363d" stroke-width="1" filter="url(#screenGlow)"/>
+    <!-- Screen inner -->
+    <rect x="19.5" y="1" width="17" height="11" rx="1" fill="#0d1117"/>
+    <!-- Code lines container -->
+    <g clip-path="url(#screenClipCode)">
+      <defs>
+        <clipPath id="screenClipCode">
+          <rect x="20" y="1.5" width="16" height="10" rx="0.5"/>
+        </clipPath>
+      </defs>
+        <line x1="21" y1="4.0" x2="22" y2="4.0" stroke="#7ee787" stroke-width="1.2">
+          <animate attributeName="x2" values="22; 28; 22" dur="0.6s" begin="0.0s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.7; 1; 0.7" dur="0.6s" begin="0.0s" repeatCount="indefinite"/>
+        </line>
+        <line x1="21" y1="6.5" x2="24" y2="6.5" stroke="#ffa657" stroke-width="1.2">
+          <animate attributeName="x2" values="24; 30; 24" dur="0.7s" begin="0.08s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.7; 1; 0.7" dur="0.7s" begin="0.08s" repeatCount="indefinite"/>
+        </line>
+        <line x1="21" y1="9.0" x2="26" y2="9.0" stroke="#d2a8ff" stroke-width="1.2">
+          <animate attributeName="x2" values="26; 32; 26" dur="0.8s" begin="0.16s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.7; 1; 0.7" dur="0.8s" begin="0.16s" repeatCount="indefinite"/>
+        </line>
+        <line x1="21" y1="11.5" x2="28" y2="11.5" stroke="#79c0ff" stroke-width="1.2">
+          <animate attributeName="x2" values="28; 34; 28" dur="0.9s" begin="0.24s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.7; 1; 0.7" dur="0.9s" begin="0.24s" repeatCount="indefinite"/>
+        </line>
+    </g>
+    <!-- Screen reflection -->
+    <path d="M 19.5 1 L 25 1 L 22 12 L 19.5 12 Z" fill="#f0f6fc" opacity="0.03"/>
+
+    <!-- Flying code particles -->
+    <g opacity="0">
+      <text x="38" y="6" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">fn</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.31990906138374s" begin="6.450021839556492s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 -2" dur="2.31990906138374s" begin="6.450021839556492s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="16" y="9" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">:=</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.7003828810617814s" begin="7.115896234589547s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 2" dur="1.7003828810617814s" begin="7.115896234589547s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="38" y="12" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">@</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.311632989163642s" begin="1.1858558537089863s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 6" dur="2.311632989163642s" begin="1.1858558537089863s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="16" y="15" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">&lt;&lt;</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.4167138825745311s" begin="8.673851795184788s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 -2" dur="1.4167138825745311s" begin="8.673851795184788s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="38" y="8" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">yield</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.231776911617947s" begin="0.5944208409228366s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 2" dur="2.231776911617947s" begin="0.5944208409228366s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="16" y="11" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">=&gt;</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.035447807433033s" begin="5.159601370721063s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 6" dur="2.035447807433033s" begin="5.159601370721063s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="38" y="14" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">&lt;/&gt;</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.2977804958633925s" begin="5.185615201619738s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 -2" dur="2.2977804958633925s" begin="5.185615201619738s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="16" y="7" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">int</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.8384030829630058s" begin="9.180836225026743s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 2" dur="1.8384030829630058s" begin="9.180836225026743s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="38" y="10" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">&amp;</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.292623842957471s" begin="4.782533791519602s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 6" dur="2.292623842957471s" begin="4.782533791519602s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="16" y="13" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">||</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.122378179005647s" begin="9.40494264039947s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 -2" dur="2.122378179005647s" begin="9.40494264039947s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="38" y="6" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">void</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.2716518502232055s" begin="5.615502799078965s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 2" dur="2.2716518502232055s" begin="5.615502799078965s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="16" y="9" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">*</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.491212985931611s" begin="3.7131192641432222s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 6" dur="2.491212985931611s" begin="3.7131192641432222s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="38" y="12" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">func</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.435281088332467s" begin="7.51308270645286s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 -2" dur="2.435281088332467s" begin="7.51308270645286s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="16" y="15" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">&lt;&gt;</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.1611480514479235s" begin="3.4256758583010285s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 2" dur="2.1611480514479235s" begin="3.4256758583010285s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="38" y="8" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">const</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.237960318062574s" begin="5.702430594718152s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 6" dur="2.237960318062574s" begin="5.702430594718152s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="16" y="11" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">async</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.213627209874561s" begin="6.7712506737183595s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 -2" dur="2.213627209874561s" begin="6.7712506737183595s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="38" y="14" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">[]</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.0224450892529835s" begin="9.51006268724613s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 2" dur="2.0224450892529835s" begin="9.51006268724613s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="16" y="7" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">let</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.184753013944736s" begin="10.769082909485135s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 6" dur="2.184753013944736s" begin="10.769082909485135s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="38" y="10" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">::</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.9630062575471618s" begin="2.7393236958543437s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 -2" dur="1.9630062575471618s" begin="2.7393236958543437s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="16" y="13" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">catch</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.469336512560883s" begin="2.72678996246352s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 2" dur="2.469336512560883s" begin="2.72678996246352s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="38" y="6" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">{}</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.2221681626213265s" begin="8.566769448754359s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 6" dur="2.2221681626213265s" begin="8.566769448754359s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="16" y="9" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">try</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.5006097341146618s" begin="11.200230008218533s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 -2" dur="1.5006097341146618s" begin="11.200230008218533s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="38" y="12" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">!</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.083246993866265s" begin="8.527931292246675s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 2" dur="2.083246993866265s" begin="8.527931292246675s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="16" y="15" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">()</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.3176349778921814s" begin="4.32982504190559s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 6" dur="2.3176349778921814s" begin="4.32982504190559s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0">
+      <text x="38" y="8" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">new</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.1650405128592207s" begin="5.740088569629466s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 -2" dur="2.1650405128592207s" begin="5.740088569629466s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Brain waves -->
+
+
+    <!-- Face -->
+    <!-- Face - warm skin tone -->
+    <circle cx="28" cy="18" r="6" fill="#ffdbac"/>
+    <!-- Simple eyes -->
+    <circle cx="25.5" cy="17" r="1.2" fill="#333"/>
+    <circle cx="30.5" cy="17" r="1.2" fill="#333"/>
+    <!-- Eye shine -->
+    <circle cx="25.8" cy="16.7" r="0.4" fill="#fff" opacity="0.8"/>
+    <circle cx="30.8" cy="16.7" r="0.4" fill="#fff" opacity="0.8"/>
+    <!-- Animated mouth: smile -> dot -> circle(O) -> dot -> smile -->
+    <g>
+      <!-- Mouth shape (curve or circle) -->
+      <path stroke="#a0452e" stroke-width="0.8" fill="none" stroke-linecap="round">
+        <!-- 核心路径动画：微笑→缩点→小圆→大圆→小圆→缩点→微笑 -->
+        <animate attributeName="d"
+          values="
+            M 25 20.5 Q 28 23, 31 20.5;
+            M 28 21.5 Q 28 21.5, 28 21.5;
+            M 28 21 A 0.5 0.5 0 1 1 28 22 A 0.5 0.5 0 1 1 28 21;
+            M 28 20.5 A 1 1 0 1 1 28 22.5 A 1 1 0 1 1 28 20.5;
+            M 28 21 A 0.5 0.5 0 1 1 28 22 A 0.5 0.5 0 1 1 28 21;
+            M 28 21.5 Q 28 21.5, 28 21.5;
+            M 25 20.5 Q 28 23, 31 20.5"
+          dur="6s"
+          repeatCount="indefinite"
+          calcMode="spline"
+          keyTimes="0;0.45;0.45;0.5;0.6;0.6;1"
+          keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1"/>
+
+        <!-- 填充动画：微笑时脸部肤色填充（凹陷效果），变圆时暖棕色实心（嘴巴内部） -->
+        <animate attributeName="fill"
+          values="#ffdbac;#ffdbac;#a0452e;#a0452e;#a0452e;#ffdbac;#ffdbac"
+          dur="6s"
+          repeatCount="indefinite"
+          keyTimes="0;0.45;0.45;0.5;0.6;0.6;1"/>
+
+        <!-- 描边动画：微笑时有暖棕色描边，变圆时隐藏描边 -->
+        <animate attributeName="stroke"
+          values="#a0452e;#a0452e;none;none;none;#a0452e;#a0452e"
+          dur="6s"
+          repeatCount="indefinite"
+          keyTimes="0;0.45;0.45;0.5;0.6;0.6;1"/>
+      </path>
+    </g>
+
+    <!-- Body -->
+
+
+    <!-- Keyboard -->
+    <!-- Keyboard in front of person -->
+    <g transform="translate(15, 26)">
+      <!-- Keyboard base -->
+      <rect x="0" y="0" width="26" height="4" rx="1" fill="#30363d" stroke="#484f58" stroke-width="0.5"/>
+      <!-- Space bar (现在在上方) -->
+      <rect x="6" y="0.8" width="10" height="1.2" rx="0.3" fill="#21262d"/>
+      <!-- Keys (现在在下方) -->
+      <rect x="1.5" y="2.5" width="2" height="1.2" rx="0.3" fill="#21262d"/>
+      <rect x="4" y="2.5" width="2" height="1.2" rx="0.3" fill="#21262d"/>
+      <rect x="6.5" y="2.5" width="2" height="1.2" rx="0.3" fill="#21262d"/>
+      <rect x="9" y="2.5" width="2" height="1.2" rx="0.3" fill="#21262d"/>
+      <rect x="11.5" y="2.5" width="2" height="1.2" rx="0.3" fill="#21262d"/>
+      <rect x="14" y="2.5" width="2" height="1.2" rx="0.3" fill="#21262d"/>
+      <rect x="16.5" y="2.5" width="2" height="1.2" rx="0.3" fill="#21262d"/>
+      <rect x="19" y="2.5" width="2" height="1.2" rx="0.3" fill="#21262d"/>
+      <rect x="21.5" y="2.5" width="2" height="1.2" rx="0.3" fill="#21262d"/>
+      <!-- Key press glow -->
+      <ellipse cx="13" cy="2" rx="10" ry="1.5" fill="#58a6ff" opacity="0">
+        <animate attributeName="opacity" values="0; 0.2; 0" dur="0.15s" repeatCount="indefinite"/>
+      </ellipse>
+    </g>
+
+    <!-- Hands typing -->
+    <!-- Left hand typing -->
+    <g>
+      <line x1="22" y1="22" x2="18" y2="25" stroke="#f4a460" stroke-width="2" stroke-linecap="round">
+        <animate attributeName="y2" values="25; 23; 25" dur="0.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+        <animate attributeName="x2" values="18; 17; 18" dur="0.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+      </line>
+      <circle cx="17" cy="26" r="2" fill="#ffdbac">
+        <animate attributeName="cy" values="26; 24; 26" dur="0.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+        <animate attributeName="cx" values="17; 16; 17" dur="0.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+      </circle>
+    </g>
+    <!-- Right hand typing -->
+    <g>
+      <line x1="34" y1="22" x2="38" y2="25" stroke="#f4a460" stroke-width="2" stroke-linecap="round">
+        <animate attributeName="y2" values="25; 23; 25" dur="0.2s" begin="0.05s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+        <animate attributeName="x2" values="38; 39; 38" dur="0.2s" begin="0.05s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+      </line>
+      <circle cx="39" cy="26" r="2" fill="#ffdbac">
+        <animate attributeName="cy" values="26; 24; 26" dur="0.2s" begin="0.05s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+        <animate attributeName="cx" values="39; 40; 39" dur="0.2s" begin="0.05s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+      </circle>
+    </g>
+
+    <!-- Coffee -->
+    <!-- Coffee cup with steam -->
+    <g transform="translate(45, 24)">
+      <rect x="0" y="0" width="4" height="5" rx="0.8" fill="#ffa657" opacity="0.9"/>
+      <path d="M 4 1 Q 5.5 1, 5.5 2.5 Q 5.5 4.5, 4 4.25" stroke="#ffa657" stroke-width="0.8" fill="none" opacity="0.9"/>
+      <g opacity="0">
+        <circle cx="1" cy="-0.5" r="0.6" fill="#8b949e" opacity="0.5"/>
+        <animate attributeName="opacity" values="0; 0.5; 0" dur="2s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate" values="0 0; 0.5 -3" dur="2s" repeatCount="indefinite"/>
+      </g>
+      <g opacity="0">
+        <circle cx="2.5" cy="-1" r="0.5" fill="#8b949e" opacity="0.4"/>
+        <animate attributeName="opacity" values="0; 0.4; 0" dur="2.5s" begin="0.8s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate" values="0 0; -0.3 -3.5" dur="2.5s" begin="0.8s" repeatCount="indefinite"/>
+      </g>
+    </g>
+  </g>
+</svg>
