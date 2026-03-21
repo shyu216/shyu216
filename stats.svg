@@ -44,11 +44,11 @@
     </text>
     <text x="85.0" y="77" text-anchor="middle" 
           fill="#8B7BA8" font-family="'Varela Round', 'Nunito', sans-serif" font-size="8">
-      2,492 hrs 12 mins
+      2,492 hrs 17 mins
     </text>
     <rect x="25" y="90" width="120" height="8" rx="4" 
           fill="#F0D9E8" opacity="0.3"/>
-    <rect x="25" y="90" width="29.90654874103333" height="8" rx="4" 
+    <rect x="25" y="90" width="29.907476621033332" height="8" rx="4" 
           fill="#7DD3FC"/>
     <text x="85.0" y="110" text-anchor="middle" 
           fill="#B8A9C9" font-family="'Varela Round', 'Nunito', sans-serif" font-size="7">
@@ -149,6 +149,6 @@
 
   <text x="585" y="192" text-anchor="end" 
         fill="#B8A9C9" font-family="'Varela Round', 'Nunito', sans-serif" font-size="10" font-style="italic">
-    last update: 2026-03-21 18:32
+    last update: 2026-03-21 07:33
   </text>
 </svg>
