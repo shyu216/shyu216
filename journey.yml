@@ -5,37 +5,33 @@ journey:
   - year: 2001
     city: Sanya
     coords: [109.5121, 18.2528]
-    emoji: "🏝️"
 
   - year: 2013
     city: Haikou
     coords: [110.3490, 20.0440]
-    emoji: "📚"
 
   - year: 2019
-    city: Hong Kong
+    city: HK
     coords: [114.1694, 22.3193]
-    emoji: "🏙️"
 
   - year: 2024
-    city: Melbourne
+    city: Melb
     coords: [144.9631, -37.8136]
-    emoji: "🦘"
 
 # 地图配置
 map_config:
   width: 600
-  height: 400
+  height: 300
   # 投影方式: "mercator" 或 "azimuthal"
   projection: "azimuthal"
   # 中心点: "weighted", "centroid", "bbox", "melbourne", 或 [lon, lat]
   center: "weighted"
   scale: 150
   # 圆角弧度 (0-50, 0为直角)
-  border_radius: 30
+  border_radius: 20
   colors:
     background: "#f5f5dc"
     land: "#d4c4a8"
     border: "#8b4513"
     graticule: "#8b7355"
-    path_colors: ["#8b4513", "#a0522d", "#cd853f"]
+    path_colors: ["#8b4513", "#cd853f"]

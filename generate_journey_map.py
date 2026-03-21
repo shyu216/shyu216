@@ -327,6 +327,90 @@ def calculate_distance(lon1: float, lat1: float, lon2: float, lat2: float) -> fl
     return R * c
 
 
+def hex_to_hsl(hex_color: str) -> tuple:
+    """HEX 颜色转 HSL"""
+    hex_color = hex_color.lstrip('#')
+    r = int(hex_color[0:2], 16) / 255
+    g = int(hex_color[2:4], 16) / 255
+    b = int(hex_color[4:6], 16) / 255
+
+    max_c = max(r, g, b)
+    min_c = min(r, g, b)
+    l = (max_c + min_c) / 2
+
+    if max_c == min_c:
+        h = s = 0
+    else:
+        d = max_c - min_c
+        s = d / (2 - max_c - min_c) if l > 0.5 else d / (max_c + min_c)
+        if max_c == r:
+            h = ((g - b) / d + (6 if g < b else 0)) / 6
+        elif max_c == g:
+            h = ((b - r) / d + 2) / 6
+        else:
+            h = ((r - g) / d + 4) / 6
+
+    return (h * 360, s, l)
+
+
+def hsl_to_hex(h: float, s: float, l: float) -> str:
+    """HSL 转 HEX 颜色"""
+    h = h / 360
+
+    if s == 0:
+        r = g = b = l
+    else:
+        def hue_to_rgb(p, q, t):
+            if t < 0: t += 1
+            if t > 1: t -= 1
+            if t < 1/6: return p + (q - p) * 6 * t
+            if t < 1/2: return q
+            if t < 2/3: return p + (q - p) * (2/3 - t) * 6
+            return p
+
+        q = l * (1 + s) if l < 0.5 else l + s - l * s
+        p = 2 * l - q
+        r = hue_to_rgb(p, q, h + 1/3)
+        g = hue_to_rgb(p, q, h)
+        b = hue_to_rgb(p, q, h - 1/3)
+
+    return f"#{int(r*255):02x}{int(g*255):02x}{int(b*255):02x}"
+
+
+def generate_color_palette(n: int, base_colors: list = None) -> list:
+    """自动生成 N 个渐变色
+    
+    逻辑:
+    - n <= len(base_colors): 直接使用前 n 个颜色
+    - n > len(base_colors): 清空，使用第一个和最后一个颜色之间渐变生成 n 个
+    """
+    if base_colors is None:
+        base_colors = ["#8b4513", "#cd853f", "#d4a574", "#a0522d"]
+
+    if n <= len(base_colors):
+        return base_colors[:n]
+
+    base_hsl = [hex_to_hsl(c) for c in base_colors]
+    start_h = base_hsl[0][0]
+    end_h = base_hsl[-1][0]
+    start_s = base_hsl[0][1]
+    end_s = base_hsl[-1][1]
+    start_l = base_hsl[0][2]
+    end_l = base_hsl[-1][2]
+
+    colors = []
+    for i in range(n):
+        progress = i / max(n - 1, 1)
+        
+        h = start_h + (end_h - start_h) * progress
+        s = start_s + (end_s - start_s) * progress
+        l = start_l + (end_l - start_l) * progress
+
+        colors.append(hsl_to_hex(h, s, l))
+
+    return colors
+
+
 def calculate_weighted_center(journey: list, isolation_factor: float = 0.8) -> tuple:
     """
     计算考虑地理分布的加权中心
@@ -548,23 +632,25 @@ def generate_svg(data: dict, output_path: str):
             'y': y
         })
     
-    # 生成旅程路径
+    path_count = len(journey_points) - 1
+    path_colors = generate_color_palette(path_count, colors.get('path_colors', None) or ["#8b4513", "#cd853f"])
+    
     journey_paths = []
-    for i in range(len(journey_points) - 1):
+    for i in range(path_count):
         start = (journey_points[i]['x'], journey_points[i]['y'])
         end = (journey_points[i+1]['x'], journey_points[i+1]['y'])
-        path_d = generate_curved_path(start, end, curvature=0.15)
         
-        # 计算距离
         dist = calculate_distance(
             journey_points[i]['coords'][0], journey_points[i]['coords'][1],
             journey_points[i+1]['coords'][0], journey_points[i+1]['coords'][1]
         )
         
-        color = colors['path_colors'][i % len(colors['path_colors'])]
+        curvature = 0.25 if dist < 5000 else 0.15 if dist < 10000 else 0.08
+        path_d = generate_curved_path(start, end, curvature=curvature)
+        
         journey_paths.append({
             'd': path_d,
-            'color': color,
+            'color': path_colors[i],
             'from': journey_points[i],
             'to': journey_points[i+1],
             'distance': dist
@@ -587,11 +673,15 @@ def generate_svg(data: dict, output_path: str):
         f'    <style>',
         f'      .country {{ fill: {colors["land"]}; stroke: {colors["border"]}; stroke-width: 0.5; }}',
         f'      .graticule {{ fill: none; stroke: {colors["graticule"]}; stroke-width: 0.3; stroke-opacity: 0.4; }}',
-        f'      .journey-path {{ fill: none; stroke-linecap: round; }}',
+        f'      .journey-path {{ fill: none; stroke-linecap: round; stroke-dasharray: 8 4; }}',
         f'      .marker {{ filter: drop-shadow(0 0 8px currentColor); }}',
         f'      .marker-pulse {{ fill: none; stroke-width: 2; opacity: 0.6; }}',
         f'      .label {{ font-family: Georgia, serif; }}',
         f'      .compass {{ fill: none; stroke: {colors["border"]}; stroke-width: 1.5; }}',
+        f'      @keyframes dash {{',
+        f'        to {{ stroke-dashoffset: -24; }}',
+        f'      }}',
+        f'      .journey-path {{ animation: dash 1.5s linear infinite; }}',
         f'    </style>',
         f'  </defs>',
         f'',
@@ -625,15 +715,18 @@ def generate_svg(data: dict, output_path: str):
     svg_parts.append('')
     svg_parts.append('  <!-- 地点标记 -->')
 
-    # 添加地点标记（仅保留脉冲圆环和中心点，删除文字标签）
+    marker_colors = generate_color_palette(len(journey_points), colors.get('path_colors', None) or ["#8b4513", "#cd853f"])
+    
     for i, point in enumerate(journey_points):
-        color = colors['path_colors'][min(i, len(colors['path_colors'])-1)]
+        color = marker_colors[i]
+        is_latest = (i == len(journey_points) - 1)
 
-        # 脉冲圆环
-        svg_parts.append(f'  <circle class="marker-pulse" cx="{point["x"]:.2f}" cy="{point["y"]:.2f}" r="8" stroke="{color}">')
-        svg_parts.append(f'    <animate attributeName="r" values="8;20;8" dur="2s" repeatCount="indefinite"/>')
-        svg_parts.append(f'    <animate attributeName="opacity" values="0.6;0;0.6" dur="2s" repeatCount="indefinite"/>')
-        svg_parts.append(f'  </circle>')
+        # 只给最新地点添加脉冲动画
+        if is_latest:
+            svg_parts.append(f'  <circle class="marker-pulse" cx="{point["x"]:.2f}" cy="{point["y"]:.2f}" r="8" stroke="{color}">')
+            svg_parts.append(f'    <animate attributeName="r" values="5;8;20" dur="3s" repeatCount="indefinite"/>')
+            svg_parts.append(f'    <animate attributeName="opacity" values="0.6;0.2;0" dur="3s" repeatCount="indefinite"/>')
+            svg_parts.append(f'  </circle>')
 
         # 中心点
         svg_parts.append(f'  <circle class="marker" cx="{point["x"]:.2f}" cy="{point["y"]:.2f}" r="5" fill="{color}"/>')
@@ -649,19 +742,23 @@ def generate_svg(data: dict, output_path: str):
     compass_x = width - 80
     compass_y = 100
     svg_parts.append(f'  <g transform="translate({compass_x}, {compass_y})" opacity="0.6">')
+    svg_parts.append(f'    <circle r="38" fill="none" stroke="{colors["graticule"]}" stroke-width="0.3" stroke-dasharray="2,2"/>')
     svg_parts.append(f'    <circle r="35" class="compass"/>')
     svg_parts.append(f'    <circle r="30" fill="none" stroke="{colors["graticule"]}" stroke-width="0.5"/>')
+    svg_parts.append(f'    <circle r="20" fill="none" stroke="{colors["graticule"]}" stroke-width="0.3"/>')
+    svg_parts.append(f'    <line x1="0" y1="-38" x2="0" y2="38" stroke="{colors["graticule"]}" stroke-width="0.5" stroke-dasharray="3,3"/>')
+    svg_parts.append(f'    <line x1="-38" y1="0" x2="38" y2="0" stroke="{colors["graticule"]}" stroke-width="0.5" stroke-dasharray="3,3"/>')
     svg_parts.append(f'    <path d="M 0 -25 L 6 -6 L 25 0 L 6 6 L 0 25 L -6 6 L -25 0 L -6 -6 Z" fill="{colors["land"]}" stroke="{colors["border"]}" stroke-width="1"/>')
-    svg_parts.append(f'    <text y="-38" text-anchor="middle" fill="{colors["border"]}" font-size="10" font-weight="bold">N</text>')
-    svg_parts.append(f'    <text y="48" text-anchor="middle" fill="{colors["graticule"]}" font-size="8">S</text>')
-    svg_parts.append(f'    <text x="-42" y="4" text-anchor="middle" fill="{colors["graticule"]}" font-size="8">W</text>')
-    svg_parts.append(f'    <text x="42" y="4" text-anchor="middle" fill="{colors["graticule"]}" font-size="8">E</text>')
+    svg_parts.append(f'    <text y="-40" text-anchor="middle" fill="{colors["border"]}" font-size="11" font-weight="bold">N</text>')
+    svg_parts.append(f'    <text y="50" text-anchor="middle" fill="{colors["graticule"]}" font-size="9">S</text>')
+    svg_parts.append(f'    <text x="-45" y="4" text-anchor="middle" fill="{colors["graticule"]}" font-size="9">W</text>')
+    svg_parts.append(f'    <text x="45" y="4" text-anchor="middle" fill="{colors["graticule"]}" font-size="9">E</text>')
     svg_parts.append(f'  </g>')
 
     svg_parts.append('')
     svg_parts.append('  <!-- 时间线 -->')
     timeline_y = height - 50
-    timeline_margin = 80
+    timeline_margin = 60
     timeline_width = width - 2 * timeline_margin
     timeline_x = timeline_margin
 
@@ -671,27 +768,48 @@ def generate_svg(data: dict, output_path: str):
     max_year = max(current_year, max(years))
     year_range = max_year - min_year if max_year > min_year else 1
 
+    timeline_colors = generate_color_palette(len(journey_points), colors.get('path_colors', None) or ["#8b4513", "#cd853f"])
+    end_color = timeline_colors[-1]
+    
     svg_parts.append(f'  <g transform="translate({timeline_x}, {timeline_y})">')
-    svg_parts.append(f'    <line x1="0" y1="0" x2="{timeline_width}" y2="0" stroke="{colors["graticule"]}" stroke-width="2"/>')
-
-    svg_parts.append(f'    <!-- 起始点 -->')
-    svg_parts.append(f'    <circle cx="0" cy="0" r="4" fill="{colors["border"]}" opacity="0.4"/>')
-
-    svg_parts.append(f'    <!-- 终点 -->')
-    end_x = timeline_width
-    svg_parts.append(f'    <polygon points="{end_x},-6 {end_x + 10},0 {end_x},6" fill="{colors["border"]}" opacity="0.5"/>')
-
-    # 时间点 - 按真实时间长度排列
+    
     for i, point in enumerate(journey_points):
         year_offset = point['year'] - min_year
         x_pos = (year_offset / year_range) * timeline_width if year_range > 0 else timeline_width / 2
-        color = colors['path_colors'][min(i, len(colors['path_colors'])-1)]
+        color = timeline_colors[i]
+        is_latest = (i == len(journey_points) - 1)
 
-        svg_parts.append(f'    <circle cx="{x_pos}" cy="0" r="6" fill="{color}" stroke="{colors["background"]}" stroke-width="2"/>')
-        svg_parts.append(f'    <text x="{x_pos}" y="20" text-anchor="middle" fill="#5c4033" font-size="10" class="label">{point["year"]}</text>')
-        svg_parts.append(f'    <text x="{x_pos}" y="34" text-anchor="middle" fill="#8b7355" font-size="9" class="label">{point["city"]}</text>')
+        if i == 0:
+            svg_parts.append(f'    <line x1="0" y1="-4" x2="0" y2="4" stroke="{color}" stroke-width="2"/>')
+        else:
+            svg_parts.append(f'    <line x1="{x_pos}" y1="-4" x2="{x_pos}" y2="4" stroke="{color}" stroke-width="2"/>')
+
+        svg_parts.append(f'    <text x="{x_pos}" y="-12" text-anchor="middle" fill="#5c4033" font-size="13" font-weight="bold" class="label">{point["year"]}</text>')
+        svg_parts.append(f'    <text x="{x_pos}" y="22" text-anchor="middle" fill="#8b7355" font-size="11" class="label">{point["city"]}</text>')
+        
+        if i > 0:
+            prev_point = journey_points[i-1]
+            dist = calculate_distance(
+                prev_point['coords'][0], prev_point['coords'][1],
+                point['coords'][0], point['coords'][1]
+            )
+            mid_x = (x_pos + ((year_offset - (point['year'] - prev_point['year'])) / year_range * timeline_width if year_range > 0 else timeline_width / 2)) / 2 if i > 1 else x_pos / 2
+            dist_color = timeline_colors[i-1]
+            svg_parts.append(f'    <text x="{mid_x}" y="-2" text-anchor="middle" fill="{dist_color}" font-size="8" opacity="0.7">{dist:,.0f}km</text>')
+
+    svg_parts.append(f'    <!-- 轴线 -->')
+    svg_parts.append(f'    <line x1="0" y1="0" x2="{timeline_width}" y2="0" stroke="{timeline_colors[0]}" stroke-width="1.5" stroke-dasharray="4,2"/>')
+    svg_parts.append(f'    <!-- 终点光晕 -->')
+    svg_parts.append(f'    <circle cx="{timeline_width}" cy="0" r="8" fill="none" stroke="{end_color}" stroke-width="2" opacity="1">')
+    svg_parts.append(f'      <animate attributeName="r" values="4;6;16" dur="3s" repeatCount="indefinite"/>')
+    svg_parts.append(f'      <animate attributeName="opacity" values="0.6;0.2;0" dur="3s" repeatCount="indefinite"/>')
+    svg_parts.append(f'    </circle>')
+    svg_parts.append(f'    <circle cx="{timeline_width}" cy="0" r="4" fill="{end_color}"/>')
 
     svg_parts.append(f'  </g>')
+    
+    update_time = datetime.datetime.now().strftime("%Y-%m-%d")
+    svg_parts.append(f'  <text x="{width - 15}" y="{height - 12}" text-anchor="end" fill="{colors["graticule"]}" font-size="10" font-style="italic" opacity="0.6">Last Update: {update_time}</text>')
     
     svg_parts.append('')
     svg_parts.append('</svg>')

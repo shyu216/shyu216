@@ -1,42 +1,73 @@
-name: "Outback Sands"
-description: "澳大利亚内陆黄沙风格 - 疯狂max越野风"
+# Cute Pop Theme - 可爱波普风格
+# 粉嫩圆润的可爱卡片
+
+name: "Cute Pop"
+description: "可爱波普风格 - 圆润甜美"
+
 colors:
   background:
-    start: "#D4A574"
-    end: "#C4956A"
-  progressBar:
-    start: "#E8C87D"
-    middle: "#D4B86A"
-    end: "#C9A858"
+    start: "#FFE5F1"
+    end: "#E8F9FF"
+
   text:
-    primary: "#3D2E1F"
-    secondary: "#6B5344"
-    accent: "#FF8C42"
-    highlight: "#E67E22"
-  milestone: "#F4D03F"
-  progressBg: "#B8956E"
-  divider: "#A8845C"
-  glow: "#D4A574"
-  particles: ["#E8C87D", "#D4B86A", "#C9A858", "#FF8C42"]
-  cardBg: "#C9A66B"
-  cardBorder: "#A8845C"
-  headerStart: "#D4A574"
-  headerEnd: "#C4956A"
-  commitStart: "#C4956A"
-  commitEnd: "#A8845C"
-  starStart: "#F4D03F"
-  starEnd: "#E67E22"
+    primary: "#5D4E6D"
+    secondary: "#8B7BA8"
+    muted: "#B8A9C9"
+
+  accent:
+    main: "#FF85A2"
+    secondary: "#7DD3FC"
+    tertiary: "#FCD34D"
+    light: "#FFB5C5"
+    pink: "#FF9EBB"
+    purple: "#B088F9"
+    mint: "#6EE7B7"
+
+  card:
+    bg: "#FFFFFF"
+    border: "#F0D9E8"
+
+  progress:
+    bg: "#F3E8FF"
+    fill: "#FF85A2"
+
+langColors:
+  Python: "#FF85A2"
+  C#: "#7DD3FC"
+  TypeScript: "#FCD34D"
+  TeX: "#B088F9"
+  Markdown: "#FF9EBB"
+  JavaScript: "#FBBF24"
+  HTML: "#FB923C"
+  CSS: "#A78BFA"
+  Java: "#34D399"
+  "C++": "#F472B6"
+  Go: "#22D3EE"
+  Rust: "#FB923C"
+
 fonts:
-  primary: "'Bitter', 'Georgia', 'Times New Roman', serif"
-  title: "'Bitter', 'Georgia', serif"
-emojis:
-  title: "🦘"
-  progress: "🌿"
-  languages: "🦎"
-  remaining: "☀️"
-  milestone: "💛"
-borderRadius: 12
-animation:
-  float: true
-  pulse: false
-  sparkle: true
+  primary: "'Nunito', 'Quicksand', 'Comic Sans MS', cursive"
+  title: "'Fredoka One', 'Comic Sans MS', cursive"
+  display: "'Fredoka One', 'Bubblegum Sans', cursive"
+  round: "'Varela Round', 'Nunito', sans-serif"
+
+topLanguages:
+  - "Python"
+  - "C#"
+  - "TypeScript"
+  - "TeX"
+  - "Markdown"
+
+editorColors:
+  - "#FF85A2"
+  - "#7DD3FC"
+  - "#FCD34D"
+  - "#B088F9"
+  - "#FF9EBB"
+  - "#6EE7B7"
+
+borderRadius: 20
+
+canvas:
+  width: 600
+  height: 200

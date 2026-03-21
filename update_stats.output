@@ -3,9 +3,11 @@
  🚀 Stats Generator
 ==================================================
 
+📡 Stage 1: Fetching remote data...
+
 📊 Fetching WakaTime Stats...
 
- ✓ Total Coding Time: 2,489 hrs 39 mins
+ ✓ Total Coding Time: 2,492 hrs 12 mins
 
 🌐 Fetching WakaTime Details (Languages, Editors, Categories)...
   Trying Last 7 Days...
@@ -27,9 +29,7 @@
      • Trae: 113 hrs 7 mins (4.5%)
      • Visual Studio: 21 hrs 34 mins (0.9%)
 
-==================================================
- GitHub Token 信息查询结果
-==================================================
+🔐 Checking GitHub Token...
 
 🔐 Token 权限信息...
 
@@ -43,7 +43,7 @@
 
 ✓ Token 有效 - 关联用户: shyu216
 
-👤 Fetching GitHub User Info: shyu216
+👤 Fetching GitHub User Info...
 
 ### [1] 用户信息
 | 项目 | 内容 |
@@ -95,13 +95,13 @@
  - 推送代码到 shyu216/shyu216 (2026-03-21)
  - 推送代码到 shyu216/shyu216 (2026-03-21)
  - 推送代码到 shyu216/shyu216 (2026-03-21)
- - 推送代码到 shyu216/shyu-resume (2026-03-21)
+ - 推送代码到 shyu216/shyu216 (2026-03-21)
  - 推送代码到 shyu216/shyu-resume (2026-03-21)
 
 ### [6] Starred 仓库
 
  最近 Star 了 10 个项目：
- - 88lin/video_vip ⭐191
+ - 88lin/video_vip ⭐194
  - VIDA-Lab/Chameleon ⭐2
  - comfort-mode-toolkit/cm-colors ⭐31
  - frode-sandnes/INJECTOR ⭐1
@@ -111,6 +111,12 @@
  - shyu216/chinese-poetry-data-mining ⭐2
  - shyu216/meta-sense-calib ⭐2
  - shyu216/knownoevil ⭐2
+
+📂 Stage 2: Loading local configurations...
+   ✓ Loaded theme: stats-styles.yml
+   ✓ Loaded profile: about-me.yml
+
+🎨 Stage 3: Generating SVG...
 
 ✅ Generated: stats.svg
 

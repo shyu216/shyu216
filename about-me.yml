@@ -1,0 +1,19 @@
+# About Me - Personal Profile Configuration
+# 个人信息配置文件
+
+profile:
+  display_name: "shyu216"
+  
+  # 个人简介 (支持中英文)
+  bio: "Just an ordinary computer person, doing cool things with AI. His outputs are placed here."
+    
+  # 所在地
+  location: "Melbourne"
+  
+  # 当前目标
+  goal:
+    title: "10,000 Hours of Code"
+    description: "Write 10,000 hours of code in spare time"
+    target_hours: 10000
+    current_feeling: "Now it feels a little different. Let's see what happens when the goal is reached."
+    
