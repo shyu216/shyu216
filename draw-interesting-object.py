@@ -163,9 +163,17 @@ def generate_face_expression():
     <!-- Simple eyes -->
     <circle cx="25.5" cy="17" r="1.2" fill="#333"/>
     <circle cx="30.5" cy="17" r="1.2" fill="#333"/>
-    <!-- Eye shine -->
-    <circle cx="25.8" cy="16.7" r="0.4" fill="#fff" opacity="0.8"/>
-    <circle cx="30.8" cy="16.7" r="0.4" fill="#fff" opacity="0.8"/>
+    <!-- Eye shine - swinging in lower half of pupils -->
+    <g>
+      <circle cx="25.8" cy="16.7" r="0.4" fill="#fff" opacity="0.8">
+        <animateTransform attributeName="transform" type="rotate" values="30 25.5 17; 150 25.5 17; 30 25.5 17" dur="2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+      </circle>
+    </g>
+    <g>
+      <circle cx="30.8" cy="16.7" r="0.4" fill="#fff" opacity="0.8">
+        <animateTransform attributeName="transform" type="rotate" values="30 30.5 17; 150 30.5 17; 30 30.5 17" dur="2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+      </circle>
+    </g>
     <!-- Animated mouth: smile -> dot -> circle(O) -> dot -> smile -->
     <g>
       <!-- Mouth shape (curve or circle) -->
