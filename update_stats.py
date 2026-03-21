@@ -537,16 +537,16 @@ def generate_horizontal_svg(waka_data, waka_details, gh_user, gh_repos, about_me
       </defs>
       <rect x="{card_x + 10}" y="{card_y + 75}" width="{card_w - 20}" height="8" rx="4" 
             fill="{accent_sec}" clip-path="url(#progressClip_{card_x})"/>
-      {'' if waka_progress == 0 else f'''
-      <rect x="{card_x + 10 - 40}" y="{card_y + 75}" width="40" height="8" rx="4" 
+      {'' if waka_progress == 0 else f"""
+      <rect x="{card_x + 10 - 40}" y="{card_y + 75}" width="40" height="8" rx="4"
             fill="url(#progressShine)" opacity="0" clip-path="url(#progressClip_{card_x})">
         <animate attributeName="opacity" values="0; 0.6" dur="0.3s" begin="1.6s" fill="freeze"/>
-        <animate attributeName="x" 
-                 values="{card_x + 10 - 40}; {card_x + 10 + max(0, (card_w - 20) * waka_progress / 100)}" 
-                 dur="3s" begin="1.6s" repeatCount="indefinite" 
+        <animate attributeName="x"
+                 values="{card_x + 10 - 40}; {card_x + 10 + max(0, (card_w - 20) * waka_progress / 100)}"
+                 dur="3s" begin="1.6s" repeatCount="indefinite"
                  calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
       </rect>
-      '''}
+      """}
     </g>
     <text x="{card_x + card_w/2}" y="{card_y + 95}" text-anchor="middle" 
           fill="{text_muted}" font-family="{font_round}" font-size="7">
