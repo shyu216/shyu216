@@ -1,0 +1,37 @@
+name: Generate Journey Map on Commit
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'generate_journey_map.py'
+      - 'journey.yml'
+      - 'world-110m.json'
+  workflow_dispatch:
+
+jobs:
+  generate-journey-map:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Generate Journey Map
+        run: python generate_journey_map.py
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add journey-map.svg
+          git diff --staged --quiet || git commit -m "Update journey map SVG"
+          git push
