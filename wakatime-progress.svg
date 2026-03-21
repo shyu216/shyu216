@@ -1,0 +1,24 @@
+<svg width="800" height="220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF8F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFEFEB;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFB6C1" />
+      <stop offset="50%" style="stop-color:#FFC0CB" />
+      <stop offset="100%" style="stop-color:#FFD1DC" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="220" fill="url(#bgGradient)" rx="20"/>
+  <text x="400" y="45" text-anchor="middle" fill="#5D4E6D" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="22" font-weight="bold">* The 10,000 Hour Rule *</text>
+  <text x="80" y="90" fill="#8B7B8B" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="14">Total Coding Time</text>
+  <text x="80" y="120" fill="#5D4E6D" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="32" font-weight="bold">2,488 hrs 19 mins</text>
+  <rect x="80" y="145" width="640" height="12" rx="6" fill="#E8D5D5"/>
+  <rect x="80" y="145" width="174.18305930880555" height="12" rx="6" fill="url(#progressGradient)"/>
+  <text x="720" y="135" text-anchor="end" fill="#FF8FA3" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="16" font-weight="bold">24.88%</text>
+  <text x="720" y="175" text-anchor="end" fill="#8B7B8B" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="12">~7511 hrs remaining</text>
+  <text x="80" y="210" fill="#8B7B8B" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="14">&lt;&gt; Top Languages</text>
+  <line x1="80" y1="220" x2="720" y2="220" stroke="#E0D0D0" stroke-width="1"/>
+  
+</svg>

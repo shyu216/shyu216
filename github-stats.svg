@@ -1,0 +1,33 @@
+<svg width="800" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF8F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFEFEB;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="300" fill="url(#bgGradient)" rx="20"/>
+  <text x="400" y="45" text-anchor="middle" fill="#5D4E6D" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="22" font-weight="bold">* GitHub Stats *</text>
+  <text x="400" y="75" text-anchor="middle" fill="#8B7B8B" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="14">@shyu216 • 1850 days since joining</text>
+  
+  <rect x="60" y="100" width="160" height="80" rx="10" fill="#FFFFFF" stroke="#FFE4E1" stroke-width="1"/>
+  <text x="140" y="130" text-anchor="middle" fill="#8B7B8B" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="12">Repositories</text>
+  <text x="140" y="160" text-anchor="middle" fill="#5D4E6D" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="24" font-weight="bold">82</text>
+  
+  <rect x="240" y="100" width="160" height="80" rx="10" fill="#FFFFFF" stroke="#FFE4E1" stroke-width="1"/>
+  <text x="340" y="130" text-anchor="middle" fill="#8B7B8B" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="12">Followers</text>
+  <text x="340" y="160" text-anchor="middle" fill="#5D4E6D" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="24" font-weight="bold">11</text>
+  
+  <rect x="420" y="100" width="160" height="80" rx="10" fill="#FFFFFF" stroke="#FFE4E1" stroke-width="1"/>
+  <text x="500" y="130" text-anchor="middle" fill="#8B7B8B" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="12">Following</text>
+  <text x="500" y="160" text-anchor="middle" fill="#5D4E6D" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="24" font-weight="bold">36</text>
+  
+  <rect x="600" y="100" width="140" height="80" rx="10" fill="#FFFFFF" stroke="#FFE4E1" stroke-width="1"/>
+  <text x="670" y="130" text-anchor="middle" fill="#8B7B8B" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="12">Stars</text>
+  <text x="670" y="160" text-anchor="middle" fill="#5D4E6D" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="24" font-weight="bold">19</text>
+  
+  <rect x="60" y="200" width="160" height="80" rx="10" fill="#FFFFFF" stroke="#FFE4E1" stroke-width="1"/>
+  <text x="140" y="230" text-anchor="middle" fill="#8B7B8B" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="12">Forks</text>
+  <text x="140" y="260" text-anchor="middle" fill="#5D4E6D" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="24" font-weight="bold">4</text>
+  
+  <text x="400" y="275" text-anchor="middle" fill="#FF8FA3" font-family="'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Nunito', 'Quicksand', 'Arial', sans-serif" font-size="10">Updated daily</text>
+</svg>
