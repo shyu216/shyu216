@@ -4,6 +4,9 @@
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="3" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.15"/>
     </filter>
+    <clipPath id="map-clip">
+      <rect width="600" height="400" rx="30" ry="30"/>
+    </clipPath>
     <style>
       .country { fill: #d4c4a8; stroke: #8b4513; stroke-width: 0.5; }
       .graticule { fill: none; stroke: #8b7355; stroke-width: 0.3; stroke-opacity: 0.4; }
@@ -16,7 +19,10 @@
   </defs>
 
   <!-- 背景 -->
-  <rect width="600" height="400" fill="#f5f5dc" rx="20" ry="20" filter="url(#shadow)"/>
+  <rect width="600" height="400" fill="#f5f5dc" rx="30" ry="30" filter="url(#shadow)"/>
+
+  <!-- 被裁剪的地图内容 -->
+  <g clip-path="url(#map-clip)">
 
   <!-- 经纬网格 -->
   <path class="graticule" d="M344.06,345.67 L353.47,334.35 L362.28,322.65 L370.49,310.60 L378.10,298.24 L385.14,285.58 L391.59,272.66 L397.47,259.49 L402.76,246.10 L407.48,232.50 L411.61,218.71 L415.14,204.74 L418.08,190.61 L420.39,176.34 L422.08,161.94 L423.11,147.44 L423.48,132.83 L423.14,118.16 L422.08,103.43 L420.25,88.66 L417.63,73.89 L414.16,59.14 L409.79,44.45 L404.47,29.85 L398.13,15.40 L390.70,1.14"/>
@@ -350,8 +356,10 @@
   </circle>
   <circle class="marker" cx="322.97" cy="250.71" r="5" fill="#cd853f"/>
 
+  </g>
+
   <!-- 标题 -->
-  <text class="label" x="300.0" y="40" text-anchor="middle" fill="#5c4033" font-size="24" font-weight="bold">Sihong's Life Journey</text>
+  <text class="label" x="300.0" y="40" text-anchor="middle" fill="#5c4033" font-size="24" font-weight="bold">His Journey</text>
 
   <!-- 罗盘装饰 -->
   <g transform="translate(520, 100)" opacity="0.6">
