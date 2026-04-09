@@ -1,8 +1,10 @@
 <!-- 动态 WakaTime 一万小时进度条 -->
-<img src="stats.svg" width="100%" alt="WakaTime 10,000 Hour Progress"/>
+<!-- <img src="stats.svg" width="100%" alt="WakaTime 10,000 Hour Progress"/> -->
+[![WakaTime 10,000 Hour Progress](stats.svg)](https://shyu216.github.io/)
 
 <!-- 人生轨迹地图 -->
-<img src="journey-map.svg" width="100%" alt="My Life Journey"/>
+<!-- <img src="journey-map.svg" width="100%" alt="My Life Journey"/> -->
+[![My Life Journey](journey-map.svg)](https://shyu216.github.io/)
 
 <!-- [Find more charts here](https://shyu216.github.io/portfolio/portfolio-github/) -->
 
