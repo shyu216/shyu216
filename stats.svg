@@ -125,129 +125,129 @@
 
     <!-- Flying code particles -->
     <g opacity="0">
-      <text x="38" y="6" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">::</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.263756886105508s" begin="4.876487558707142s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; 10 -2" dur="2.263756886105508s" begin="4.876487558707142s" repeatCount="indefinite"/>
+      <text x="38" y="6" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">new</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.2423016466227437s" begin="2.306210573855769s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 -2" dur="2.2423016466227437s" begin="2.306210573855769s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="16" y="9" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">{}</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.3412131085535663s" begin="7.245336648947845s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; -10 2" dur="1.3412131085535663s" begin="7.245336648947845s" repeatCount="indefinite"/>
+      <text x="16" y="9" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">::</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.156228044054799s" begin="7.752502083297063s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 2" dur="2.156228044054799s" begin="7.752502083297063s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="38" y="12" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">async</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.175154446174693s" begin="7.187148218392988s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; 10 6" dur="2.175154446174693s" begin="7.187148218392988s" repeatCount="indefinite"/>
+      <text x="38" y="12" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">=&gt;</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.6154637536343954s" begin="11.973778313483642s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 6" dur="1.6154637536343954s" begin="11.973778313483642s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="16" y="15" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">&lt;/&gt;</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.155658319536787s" begin="1.8120037580827377s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; -10 -2" dur="2.155658319536787s" begin="1.8120037580827377s" repeatCount="indefinite"/>
+      <text x="16" y="15" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">fn</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.539228118083688s" begin="7.324723665604035s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 -2" dur="2.539228118083688s" begin="7.324723665604035s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="38" y="8" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">||</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.6502469889397298s" begin="5.123749488504351s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; 10 2" dur="2.6502469889397298s" begin="5.123749488504351s" repeatCount="indefinite"/>
+      <text x="38" y="8" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">[]</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.70239423596567s" begin="12.183786660462406s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 2" dur="1.70239423596567s" begin="12.183786660462406s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="16" y="11" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">*</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.8480539661396538s" begin="7.1710849195772095s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; -10 6" dur="1.8480539661396538s" begin="7.1710849195772095s" repeatCount="indefinite"/>
+      <text x="16" y="11" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">const</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.9119107358088965s" begin="0.0s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 6" dur="1.9119107358088965s" begin="0.0s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="38" y="14" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">()</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.3985130471217295s" begin="10.424745403818514s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; 10 -2" dur="2.3985130471217295s" begin="10.424745403818514s" repeatCount="indefinite"/>
+      <text x="38" y="14" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">*</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.9875312328220742s" begin="8.476484908046864s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 -2" dur="1.9875312328220742s" begin="8.476484908046864s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="16" y="7" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">!</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.7735534776855708s" begin="6.21613133765064s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; -10 2" dur="1.7735534776855708s" begin="6.21613133765064s" repeatCount="indefinite"/>
+      <text x="16" y="7" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">catch</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.4332375103387116s" begin="2.4621401821963067s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 2" dur="1.4332375103387116s" begin="2.4621401821963067s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="38" y="10" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">func</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.2448359884616274s" begin="6.718256453677955s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; 10 6" dur="2.2448359884616274s" begin="6.718256453677955s" repeatCount="indefinite"/>
+      <text x="38" y="10" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">yield</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.2687142979602726s" begin="6.097588309120431s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 6" dur="2.2687142979602726s" begin="6.097588309120431s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
       <text x="16" y="13" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">:=</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.1299244327812192s" begin="6.595262368446388s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; -10 -2" dur="2.1299244327812192s" begin="6.595262368446388s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.3455519980522044s" begin="6.74047953488858s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 -2" dur="2.3455519980522044s" begin="6.74047953488858s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="38" y="6" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">let</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.1640107179892896s" begin="6.3052256036299s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; 10 2" dur="2.1640107179892896s" begin="6.3052256036299s" repeatCount="indefinite"/>
+      <text x="38" y="6" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">async</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.7473399157720677s" begin="9.943422587691312s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 2" dur="1.7473399157720677s" begin="9.943422587691312s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="16" y="9" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">fn</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.3682475246285284s" begin="1.0854201337731784s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; -10 6" dur="2.3682475246285284s" begin="1.0854201337731784s" repeatCount="indefinite"/>
+      <text x="16" y="9" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">try</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.7999274787192656s" begin="2.0361630958031998s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 6" dur="1.7999274787192656s" begin="2.0361630958031998s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="38" y="12" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">&lt;&gt;</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.9952855501604623s" begin="2.723195325072288s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; 10 -2" dur="1.9952855501604623s" begin="2.723195325072288s" repeatCount="indefinite"/>
+      <text x="38" y="12" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">()</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.003701497297177s" begin="7.262867568775658s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 -2" dur="2.003701497297177s" begin="7.262867568775658s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="16" y="15" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">try</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.598795823922302s" begin="8.557077091517613s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; -10 2" dur="2.598795823922302s" begin="8.557077091517613s" repeatCount="indefinite"/>
+      <text x="16" y="15" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">int</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.7772791074656549s" begin="4.880050904232379s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 2" dur="1.7772791074656549s" begin="4.880050904232379s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="38" y="8" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">[]</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.253324889553287s" begin="9.71446097811906s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; 10 6" dur="2.253324889553287s" begin="9.71446097811906s" repeatCount="indefinite"/>
+      <text x="38" y="8" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">func</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.333473473882641s" begin="6.398378730419787s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 6" dur="2.333473473882641s" begin="6.398378730419787s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="16" y="11" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">@</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.8675641782197216s" begin="4.950682392175663s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; -10 -2" dur="1.8675641782197216s" begin="4.950682392175663s" repeatCount="indefinite"/>
+      <text x="16" y="11" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">&lt;&lt;</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.6111111151083557s" begin="8.636834328582305s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 -2" dur="1.6111111151083557s" begin="8.636834328582305s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="38" y="14" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">const</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.018244040706628s" begin="2.919683652491s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; 10 2" dur="2.018244040706628s" begin="2.919683652491s" repeatCount="indefinite"/>
+      <text x="38" y="14" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">&lt;/&gt;</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.8863526848123144s" begin="6.286609938807504s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 2" dur="1.8863526848123144s" begin="6.286609938807504s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="16" y="7" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">new</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.6206857508181693s" begin="7.784841277153593s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; -10 6" dur="1.6206857508181693s" begin="7.784841277153593s" repeatCount="indefinite"/>
+      <text x="16" y="7" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">&lt;&gt;</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.7566500594532426s" begin="6.392058537463756s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 6" dur="1.7566500594532426s" begin="6.392058537463756s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="38" y="10" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">catch</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.148152109936336s" begin="5.655882611095413s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; 10 -2" dur="2.148152109936336s" begin="5.655882611095413s" repeatCount="indefinite"/>
+      <text x="38" y="10" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">@</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.8349646934320185s" begin="1.8878751998997245s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 -2" dur="1.8349646934320185s" begin="1.8878751998997245s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="16" y="13" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">yield</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.939101883070309s" begin="1.4607540295893635s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; -10 2" dur="1.939101883070309s" begin="1.4607540295893635s" repeatCount="indefinite"/>
+      <text x="16" y="13" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">!</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.2726839616987466s" begin="8.246480856839678s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 2" dur="2.2726839616987466s" begin="8.246480856839678s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="38" y="6" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">void</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.5996152090645284s" begin="5.647961328204677s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; 10 6" dur="2.5996152090645284s" begin="5.647961328204677s" repeatCount="indefinite"/>
+      <text x="38" y="6" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">{}</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.9474517111699101s" begin="2.7060268660419924s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 6" dur="1.9474517111699101s" begin="2.7060268660419924s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="16" y="9" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">&lt;&lt;</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.83472009741558s" begin="9.718978811801982s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; -10 -2" dur="1.83472009741558s" begin="9.718978811801982s" repeatCount="indefinite"/>
+      <text x="16" y="9" fill="#7ee787" font-size="2.5" font-family="monospace" font-weight="bold">||</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.1366691517133494s" begin="5.937432051302141s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 -2" dur="2.1366691517133494s" begin="5.937432051302141s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="38" y="12" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">int</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.078958386176929s" begin="12.210890346180703s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; 10 2" dur="2.078958386176929s" begin="12.210890346180703s" repeatCount="indefinite"/>
+      <text x="38" y="12" fill="#ffa657" font-size="2.5" font-family="monospace" font-weight="bold">let</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.257701004873121s" begin="7.598856791587548s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 2" dur="2.257701004873121s" begin="7.598856791587548s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="16" y="15" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">=&gt;</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.618488910665536s" begin="7.079039998651514s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; -10 6" dur="2.618488910665536s" begin="7.079039998651514s" repeatCount="indefinite"/>
+      <text x="16" y="15" fill="#d2a8ff" font-size="2.5" font-family="monospace" font-weight="bold">&amp;</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="1.700590549469764s" begin="6.673331832729915s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -10 6" dur="1.700590549469764s" begin="6.673331832729915s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
-      <text x="38" y="8" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">&amp;</text>
-      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.0199791650709376s" begin="7.635661519607121s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0 0; 10 -2" dur="2.0199791650709376s" begin="7.635661519607121s" repeatCount="indefinite"/>
+      <text x="38" y="8" fill="#58a6ff" font-size="2.5" font-family="monospace" font-weight="bold">void</text>
+      <animate attributeName="opacity" values="0; 0.8; 0" dur="2.206228117875638s" begin="1.6944168704738143s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 10 -2" dur="2.206228117875638s" begin="1.6944168704738143s" repeatCount="indefinite"/>
     </g>
 
     <!-- Brain waves -->
@@ -470,6 +470,6 @@
 
   <text x="585" y="192" text-anchor="end" 
         fill="#B8A9C9" font-family="'Varela Round', 'Nunito', sans-serif" font-size="10" font-style="italic">
-    last update: 2026-06-13
+    last update: 2026-06-14
   </text>
 </svg>
