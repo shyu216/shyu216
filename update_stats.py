@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import sys
 import urllib.request
 import urllib.error
@@ -239,38 +240,67 @@ def fetch_github_user(token, username):
         return None
 
 
+def _parse_link_header(link_header):
+    """Parse GitHub's Link header to extract rel -> url mapping"""
+    if not link_header:
+        return {}
+    links = {}
+    for part in link_header.split(","):
+        match = re.search(r'<([^>]+)>;\s*rel="(\w+)"', part.strip())
+        if match:
+            links[match.group(2)] = match.group(1)
+    return links
+
+
 def fetch_github_repos(token, username):
-    print(f"\n### [2] 可访问的仓库")
+    print(f"\n### [2] 可访问的仓库 (按 star 排序，分页获取)")
 
     headers = {"Authorization": f"Bearer {token}"} if token else {}
-    url = f"https://api.github.com/users/{username}/repos?per_page=100&sort=updated"
 
     total_stars = 0
     total_forks = 0
     repos = []
+    page = 1
+    max_pages = 10  # safety limit: at most 1000 repos
 
     try:
-        req = urllib.request.Request(url, headers=headers)
-        with urllib.request.urlopen(req, timeout=30) as response:
-            data = json.loads(response.read().decode())
+        url = f"https://api.github.com/users/{username}/repos?per_page=100&sort=stars&type=owner"
 
-            print("\n 最近更新的仓库包括：\n")
-            for repo in data[:10]:
-                lang = repo.get("language") or "N/A"
-                desc = (repo.get("description") or "No description")[:50]
-                print(f" - {username}/{repo.get('name')} [{repo.get('visibility')}] - {desc}")
-                print(f"   ⭐ {repo.get('stargazers_count', 0)} | 🍴 {repo.get('forks_count', 0)} | 💻 {lang}")
+        while url and page <= max_pages:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=30) as response:
+                link_header = response.headers.get("Link")
+                links = _parse_link_header(link_header)
+                data = json.loads(response.read().decode())
 
-                total_stars += repo.get("stargazers_count", 0)
-                total_forks += repo.get("forks_count", 0)
-                repos.append(repo)
+                if not data:
+                    break
 
-            if len(data) > 10:
-                print(f"\n ... 还有 {len(data) - 10} 个更多仓库")
+                if page == 1:
+                    print(f"\n 第 1 页 (共从 {links.get('last', '?')} 获取):\n")
+                    for repo in data[:10]:
+                        lang = repo.get("language") or "N/A"
+                        desc = (repo.get("description") or "No description")[:50]
+                        print(f" - {username}/{repo.get('name')} [{repo.get('visibility')}] - {desc}")
+                        print(f"   ⭐ {repo.get('stargazers_count', 0)} | 🍴 {repo.get('forks_count', 0)} | 💻 {lang}")
 
-            print(f"\n 📊 总计: ⭐ {total_stars} stars | 🍴 {total_forks} forks")
+                for repo in data:
+                    total_stars += repo.get("stargazers_count", 0)
+                    total_forks += repo.get("forks_count", 0)
+                    repos.append(repo)
 
-            return repos, total_stars, total_forks
+                # follow next page if available
+                url = links.get("next")
+                page += 1
+
+        if page > 2:
+            print(f"\n 共获取 {page - 1} 页 / {len(repos)} 个仓库")
+        elif len(data) > 10:
+            print(f"\n ... 还有 {len(data) - 10} 个更多仓库")
+
+        print(f"\n 📊 总计: ⭐ {total_stars} stars | 🍴 {total_forks} forks ({len(repos)} repos)")
+
+        return repos, total_stars, total_forks
     except urllib.error.HTTPError as e:
         print(f" ✗ HTTP Error {e.code}: {e.reason}")
         return [], 0, 0
@@ -824,16 +854,18 @@ def main():
     # ========== Stage 1: 获取远程数据 ==========
     print("\n📡 Stage 1: Fetching remote data...")
 
+    # 预初始化所有变量，确保无论走哪个分支都有值
+    waka_data = None
+    waka_details = None
+    gh_user = None
+    gh_repos = []
+    gh_orgs = []
+
     # 检查 Token 是否存在
     if not waka_key and not gh_token:
         print("\n⚠️ Warning: No API tokens configured. Using mock data.")
-        waka_data = None
-        gh_user = None
     else:
         # 获取 WakaTime 数据
-        waka_data = None
-        waka_details = None
-
         if waka_key:
             waka_data = fetch_wakatime_stats(waka_key)
             if waka_data is None:
@@ -846,10 +878,6 @@ def main():
             print("\n⚠️ WAKATIME_API_KEY not set, skipping WakaTime")
 
         # 获取 GitHub 数据
-        gh_user = None
-        gh_repos = []
-        gh_orgs = []
-
         if gh_token:
             print("\n🔐 Checking GitHub Token...")
 

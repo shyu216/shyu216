@@ -327,6 +327,132 @@ def calculate_distance(lon1: float, lat1: float, lon2: float, lat2: float) -> fl
     return R * c
 
 
+def great_circle_interpolate(lon1: float, lat1: float, lon2: float, lat2: float, num_points: int = 50) -> list:
+    """
+    球面线性插值 (Slerp) - 生成两点间大圆航线上的中间点
+
+    真实地球是球体，两点间最短路径是大圆航线（Great Circle）。
+    在2D地图投影上，大圆航线表现为曲线而非直线。
+
+    算法:
+    1. 将经纬度转换为3D笛卡尔单位向量
+    2. 使用球面线性插值 (Slerp) 在球面上均匀插值
+    3. 将插值点转换回经纬度
+
+    Args:
+        lon1, lat1: 起点经纬度（度）
+        lon2, lat2: 终点经纬度（度）
+        num_points: 插值段数（返回 num_points+1 个点）
+
+    Returns:
+        [(lon, lat), ...] 大圆航线上的点列表
+    """
+    # 转换为弧度
+    lon1_r = math.radians(lon1)
+    lat1_r = math.radians(lat1)
+    lon2_r = math.radians(lon2)
+    lat2_r = math.radians(lat2)
+
+    # 转换为3D笛卡尔坐标（单位向量）
+    x1 = math.cos(lat1_r) * math.cos(lon1_r)
+    y1 = math.cos(lat1_r) * math.sin(lon1_r)
+    z1 = math.sin(lat1_r)
+
+    x2 = math.cos(lat2_r) * math.cos(lon2_r)
+    y2 = math.cos(lat2_r) * math.sin(lon2_r)
+    z2 = math.sin(lat2_r)
+
+    # 计算两点间夹角
+    dot = x1*x2 + y1*y2 + z1*z2
+    dot = max(-1.0, min(1.0, dot))
+
+    # 两点极近时，直接线性插值以避免数值不稳定
+    if dot > 0.9999:
+        result = []
+        for i in range(num_points + 1):
+            t = i / num_points
+            lon = lon1 + (lon2 - lon1) * t
+            lat = lat1 + (lat2 - lat1) * t
+            result.append((lon, lat))
+        return result
+
+    # 球面线性插值 (Slerp)
+    omega = math.acos(dot)          # 夹角（弧度）
+    sin_omega = math.sin(omega)
+
+    result = []
+    for i in range(num_points + 1):
+        t = i / num_points
+        # Slerp 公式: slerp(p1, p2, t) = sin((1-t)*ω)/sin(ω) * p1 + sin(t*ω)/sin(ω) * p2
+        factor1 = math.sin((1 - t) * omega) / sin_omega
+        factor2 = math.sin(t * omega) / sin_omega
+
+        x = factor1 * x1 + factor2 * x2
+        y = factor1 * y1 + factor2 * y2
+        z = factor1 * z1 + factor2 * z2
+
+        # 转换回经纬度
+        lat = math.degrees(math.asin(max(-1.0, min(1.0, z))))
+        lon = math.degrees(math.atan2(y, x))
+
+        # 确保经度在 [-180, 180] 范围内
+        if lon > 180:
+            lon -= 360
+        elif lon < -180:
+            lon += 360
+
+        result.append((lon, lat))
+
+    return result
+
+
+def generate_great_circle_path(lon1: float, lat1: float, lon2: float, lat2: float,
+                                project_func, distance: float = None) -> str:
+    """
+    生成沿大圆航线的SVG路径
+
+    将大圆航线上插值出的每个点投影到屏幕坐标，然后用直线段连接，
+    在2D地图上呈现出真实的球面曲线效果。
+
+    Args:
+        lon1, lat1: 起点经纬度
+        lon2, lat2: 终点经纬度
+        project_func: 投影函数 (lon, lat) -> (screen_x, screen_y)
+        distance: 可选，预先计算的大圆距离（公里），用于自动确定插值密度
+
+    Returns:
+        SVG path 'd' 属性字符串
+    """
+    if distance is None:
+        distance = calculate_distance(lon1, lat1, lon2, lat2)
+
+    # 根据距离自适应插值密度
+    # 短距离少插值（节省计算），长距离多插值（保证曲线平滑）
+    if distance < 500:
+        num_points = 10
+    elif distance < 2000:
+        num_points = 25
+    elif distance < 5000:
+        num_points = 40
+    elif distance < 10000:
+        num_points = 60
+    else:
+        num_points = 80
+
+    # 获取大圆航线上的插值点
+    gc_points = great_circle_interpolate(lon1, lat1, lon2, lat2, num_points)
+
+    # 投影每个点到屏幕坐标
+    projected = [project_func(lon, lat) for lon, lat in gc_points]
+
+    # 构建SVG路径（用直线段连接投影点，形成曲线效果）
+    path_d = f"M {projected[0][0]:.2f},{projected[0][1]:.2f}"
+    for x, y in projected[1:]:
+        path_d += f" L {x:.2f},{y:.2f}"
+
+    return path_d
+
+
 def hex_to_hsl(hex_color: str) -> tuple:
     """HEX 颜色转 HSL"""
     hex_color = hex_color.lstrip('#')
@@ -637,16 +763,18 @@ def generate_svg(data: dict, output_path: str):
     
     journey_paths = []
     for i in range(path_count):
-        start = (journey_points[i]['x'], journey_points[i]['y'])
-        end = (journey_points[i+1]['x'], journey_points[i+1]['y'])
-        
         dist = calculate_distance(
             journey_points[i]['coords'][0], journey_points[i]['coords'][1],
             journey_points[i+1]['coords'][0], journey_points[i+1]['coords'][1]
         )
         
-        curvature = 0.25 if dist < 5000 else 0.15 if dist < 10000 else 0.08
-        path_d = generate_curved_path(start, end, curvature=curvature)
+        # 使用大圆航线生成真实地球曲率路径
+        path_d = generate_great_circle_path(
+            journey_points[i]['coords'][0], journey_points[i]['coords'][1],
+            journey_points[i+1]['coords'][0], journey_points[i+1]['coords'][1],
+            project,
+            distance=dist
+        )
         
         journey_paths.append({
             'd': path_d,
